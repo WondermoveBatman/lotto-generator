@@ -298,6 +298,7 @@ export default function Home() {
           winningNumbers.includes(num)
         ).length;
         const bonusMatch = newNumbers.includes(bonusNumber);
+
         const rank = getRank(matchCount, bonusMatch);
 
         const newHistory: LottoHistory = {
@@ -308,6 +309,9 @@ export default function Home() {
           rank: rank,
         };
         array.unshift(newHistory);
+        if (rank === "1등") {
+          break;
+        }
       }
       const recentNumber = array[0].numbers;
       setHistory((prevHistory) => {
@@ -390,6 +394,18 @@ export default function Home() {
           }
         >
           10000번 연속 실행
+        </button>
+        <button
+          onClick={() => handleMultipleGenerate(100000)}
+          style={buttonStyle}
+          onMouseOver={(e) =>
+            (e.currentTarget.style.backgroundColor = "#2563EB")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.backgroundColor = "#3B82F6")
+          }
+        >
+          100000번 연속 실행
         </button>
       </div>
       {lottoNumbers.length > 0 && (
