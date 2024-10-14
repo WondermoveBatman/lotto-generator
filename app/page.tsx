@@ -62,7 +62,7 @@ export default function Home() {
 
     const interval = setInterval(() => {
       setBlink((prev) => !prev);
-    }, 1000);
+    }, 50);
 
     return () => clearInterval(interval);
   }, []);
