@@ -292,6 +292,7 @@ export default function Home() {
     (count: number) => {
       let array = [];
       for (let i = 0; i < count; i++) {
+        console.log("🚀 ~ Home ~ i:", i);
         const newNumbers = generateLottoNumbers().slice(0, 6);
 
         const matchCount = newNumbers.filter((num) =>
@@ -406,6 +407,18 @@ export default function Home() {
           }
         >
           100000번 연속 실행
+        </button>
+        <button
+          onClick={() => handleMultipleGenerate(1000000)}
+          style={buttonStyle}
+          onMouseOver={(e) =>
+            (e.currentTarget.style.backgroundColor = "#2563EB")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.backgroundColor = "#3B82F6")
+          }
+        >
+          1000000번 연속 실행
         </button>
       </div>
       {lottoNumbers.length > 0 && (
